@@ -1,5 +1,5 @@
 #!/bin/bash
-# This script is used to mount purchased disks to vm.
+# This script is used to mount purchased disks to vm. it will mount to /opt/diskname(without 'disk-' prefix), such as disk-apps is mounted to /opt/apps
 # Before executing this script, make sure disks are already attached to the vm. This can be done on web console in vm's details.
 set -euo pipefail
 
@@ -22,7 +22,8 @@ echo "=============================="
 # Loop through each disk name
 for DISKNAME in "${DISK_NAMES[@]}"; do
     DISK="/dev/disk/by-id/google-$DISKNAME"
-    FOLDER="/opt/$DISKNAME"
+    # remove the "disk-" prefix
+    FOLDER="/opt/${DISKNAME#disk-}"
 
     echo "--------------------------------------------------"
     echo "Processing: $DISKNAME -> Target: $FOLDER"
