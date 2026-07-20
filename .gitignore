@@ -1,0 +1,34 @@
+# macOS
+
+.DS_Store
+
+# SwiftPM
+
+.build/
+.swiftpm/
+
+# Xcode
+
+DerivedData/
+build/
+
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+
+# Coverage
+
+coverage/
+*.profdata
+
+# Secrets
+
+.netrc
+.env
+.env.*
+Secrets.swift
+
+# IDEs
+
+.vscode/
+.idea/
